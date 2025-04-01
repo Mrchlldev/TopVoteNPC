@@ -62,6 +62,7 @@ class UpdateTask extends AsyncTask
                 foreach (Server::getInstance()->getWorldManager()->getWorlds() as $world) {
                     foreach ($world->getEntities() as $entity) {
                         if ($entity instanceof TopVoteEntity) {
+                            $entity->setNametagAlwaysVisible(true);
                             $nameTag = $entity->getNameTag();
                             $top = str_starts_with($entity->getNameTag(), "§b#") ? 1 : (str_starts_with($entity->getNameTag(), "§6#") ? 2 : (str_starts_with($entity->getNameTag(), "§a#") ? 3 : 0));
                             if ($top > 0)
